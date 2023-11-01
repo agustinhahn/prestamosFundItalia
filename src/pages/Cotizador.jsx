@@ -3,7 +3,8 @@ import BotonGral from '../components/BotonGral'
 
 const Cotizador = () => {
     return (
-        <div>
+        <div className='containerApp'>
+            <h1 className='tituloh1'>Prestamos Italia</h1>
             <select>
                 <option value="opcion1">Opción 2</option>
                 <option value="opcion1">Opción 1</option>
