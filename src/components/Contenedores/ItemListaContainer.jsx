@@ -1,7 +1,9 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react'
 import {Link, useNavigate} from 'react-router-dom'
 import ItemList from './ItemList';
 import ItemListCuotas from './ItemListCuotas';
+import BotonGral from '../BotonGral';
+import { ContextCart } from '../../context/CartContext';
 
 const ItemListaContainer = () => {
     // const [salida, setSalida] = useState(false);
@@ -28,6 +30,11 @@ const ItemListaContainer = () => {
     //         history('/');
     //     }, 1000); 
     // };
+
+    const {importElegido, setImportElegido} = useContext(ContextCart)
+
+    const [dineroElegido, setDineroElegido] = useState('')
+    const [cuotaElegida, setCuotaElegida] = useState('')
 
     const importes = [
         {
@@ -105,20 +112,39 @@ const ItemListaContainer = () => {
             id:3,
             cuota: 12
         },
+        {
+            id:4,
+            cuota: 16
+        },
+        {
+            id:5,
+            cuota: 18
+        },
     ]
+
+    const handleSelectChangeDinero = (e) =>{
+        const opcionDineroSeleccionado = e.target.value;
+        setDineroElegido(opcionDineroSeleccionado)
+        console.log(opcionDineroSeleccionado)
+    }
+
+    const handleSelectChangeCuota = (e) =>{
+        const opcionCuotaSeleccionado = e.target.value;
+        setDineroElegido(opcionCuotaSeleccionado)
+        console.log(opcionCuotaSeleccionado)
+    }
 
     return (
         <div className='containerApp'>
             <h1 className='animated zoomIn tituloh1'>DINERO Y CUOTAS</h1>
-            <select>
+            <select value={dineroElegido} onChange={handleSelectChangeDinero} className='animated zoomIn'>
                 <ItemList importes={importes} />
             </select>
-            <select>
+            <select value={cuotaElegida} onChange={handleSelectChangeCuota} className='animated zoomIn'>
                 <ItemListCuotas cuotas={cuotas} />
             </select>
-            {/* <Link to='/' onClick={handleVolver}>
-                <BotonGral textoBoton="VOLVER" />
-            </Link> */}
+            <BotonGral textoBoton="cotizar" />
+            <BotonGral textoBoton="volver" />
         </div>
     )
 }
