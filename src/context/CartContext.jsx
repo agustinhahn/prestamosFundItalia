@@ -3,11 +3,12 @@ export const ContextCart = createContext(null)
 
 export const CartContext = ({children}) =>{
 
-    const [importElegido, setImportElegido] = useState(0)
+    const [importElegido, setImportElegido] = useState(null)
+    const [cuotaElegida, setCuotaElegida] = useState(null)
     
         return (
     
-            <ContextCart.Provider value={{importElegido,setImportElegido}}>
+            <ContextCart.Provider value={{importElegido,setImportElegido,cuotaElegida, setCuotaElegida}}>
                 {children}
             </ContextCart.Provider>
     

@@ -6,37 +6,44 @@ import BotonGral from '../BotonGral';
 import { ContextCart } from '../../context/CartContext';
 
 const ItemListaContainer = () => {
-    // const [salida, setSalida] = useState(false);
-    // const history = useNavigate();
+    const [salida, setSalida] = useState(false);
+    const history = useNavigate();
 
-    // const handleCambioDeRuta = (e) => {
-    //     e.preventDefault(); // Evitar la redirección predeterminada
-    //     setSalida(true);
+    const handleCambioDeRuta = (e) => {
+        e.preventDefault(); // Evitar la redirección predeterminada
+        setSalida(true);
 
-    //     setTimeout(() => {
-    //         setSalida(false);
-    //         // Después de completar la transición, redirigir a la nueva ruta
-    //         history('/fecha');
-    //     }, 1000); 
-    // };
+        setTimeout(() => {
+            if(importElegido !=0 && cuotaElegida !=0 ){
+                setSalida(false);
+                // Después de completar la transición, redirigir a la nueva ruta
+                history('/resumen');
+            }
+            else{
+                console.log("ELIGE UN IMPORTE") //despues cambiar por un pop up
+            }
+        }, 1000); 
+    };
 
-    // const handleVolver = (e) => {
-    //     e.preventDefault(); // Evitar la redirección predeterminada
-    //     setSalida(true);
+    const handleVolver = (e) => {
+        e.preventDefault(); // Evitar la redirección predeterminada
+        setSalida(true);
 
-    //     setTimeout(() => {
-    //         setSalida(false);
-    //         // Después de completar la transición, redirigir a la nueva ruta
-    //         history('/');
-    //     }, 1000); 
-    // };
+        setTimeout(() => {
+            setSalida(false);
+            // Después de completar la transición, redirigir a la nueva ruta
+            history('/');
+        }, 1000); 
+    };
 
     const {importElegido, setImportElegido} = useContext(ContextCart)
-
-    const [dineroElegido, setDineroElegido] = useState('')
-    const [cuotaElegida, setCuotaElegida] = useState('')
+    const {cuotaElegida,setCuotaElegida} = useContext(ContextCart)
 
     const importes = [
+        {
+            id:0,
+            valor:"Elige un monto"
+        },
         {
             id: 1,
             valor: 10000
@@ -101,6 +108,10 @@ const ItemListaContainer = () => {
 
     const cuotas = [
         {
+            id:0,
+            cuota:"Elige cuantas cuotas"
+        },
+        {
             id:1,
             cuota: 3
         },
@@ -124,27 +135,39 @@ const ItemListaContainer = () => {
 
     const handleSelectChangeDinero = (e) =>{
         const opcionDineroSeleccionado = e.target.value;
-        setDineroElegido(opcionDineroSeleccionado)
-        console.log(opcionDineroSeleccionado)
+        const objetoEncontrado = importes.find((obj) => obj.id == opcionDineroSeleccionado);
+        const dineroValorFinal = (objetoEncontrado.valor)
+        console.log(dineroValorFinal)
+        console.log(typeof(dineroValorFinal))
+        setImportElegido(dineroValorFinal)
     }
 
     const handleSelectChangeCuota = (e) =>{
         const opcionCuotaSeleccionado = e.target.value;
-        setDineroElegido(opcionCuotaSeleccionado)
-        console.log(opcionCuotaSeleccionado)
+        const objetoEncontrado = cuotas.find((obj) => obj.id == opcionCuotaSeleccionado);
+        const cuotaValorFinal = objetoEncontrado.cuota
+        setCuotaElegida(cuotaValorFinal)
+    }
+    const botonPrueba = () =>{
+        console.log(cuotaElegida)
     }
 
     return (
         <div className='containerApp'>
             <h1 className='animated zoomIn tituloh1'>DINERO Y CUOTAS</h1>
-            <select value={dineroElegido} onChange={handleSelectChangeDinero} className='animated zoomIn'>
+            <select onChange={handleSelectChangeDinero} className='animated zoomIn'>
                 <ItemList importes={importes} />
             </select>
-            <select value={cuotaElegida} onChange={handleSelectChangeCuota} className='animated zoomIn'>
+            <select onChange={handleSelectChangeCuota} className='animated zoomIn'>
                 <ItemListCuotas cuotas={cuotas} />
             </select>
-            <BotonGral textoBoton="cotizar" />
-            <BotonGral textoBoton="volver" />
+            <button onClick={botonPrueba}>es prueba</button>
+            <Link to='/' onClick={handleCambioDeRuta}>
+                <BotonGral textoBoton="cotizar" />
+            </Link>
+            <Link to='/' onClick={handleVolver}>
+                <BotonGral textoBoton="volver" />
+            </Link>
         </div>
     )
 }
