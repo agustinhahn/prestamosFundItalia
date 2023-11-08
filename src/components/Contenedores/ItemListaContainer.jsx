@@ -14,7 +14,7 @@ const ItemListaContainer = () => {
         setSalida(true);
 
         setTimeout(() => {
-            if(importElegido !=0 && cuotaElegida !=0 ){
+            if(importElegido !==null && cuotaElegida !==null){
                 setSalida(false);
                 // Después de completar la transición, redirigir a la nueva ruta
                 history('/resumen');
@@ -135,23 +135,27 @@ const ItemListaContainer = () => {
 
     const handleSelectChangeDinero = (e) =>{
         const opcionDineroSeleccionado = e.target.value;
-        const objetoEncontrado = importes.find((obj) => obj.id == opcionDineroSeleccionado);
-        const dineroValorFinal = (objetoEncontrado.valor)
-        console.log(dineroValorFinal)
-        console.log(typeof(dineroValorFinal))
-        setImportElegido(dineroValorFinal)
+        if(opcionDineroSeleccionado == "0"){
+            setImportElegido(null)
+        }
+        else{
+            const objetoEncontrado = importes.find((obj) => obj.id == opcionDineroSeleccionado);
+            const dineroValorFinal = (objetoEncontrado.valor)
+            setImportElegido(dineroValorFinal)
+        }
     }
 
     const handleSelectChangeCuota = (e) =>{
         const opcionCuotaSeleccionado = e.target.value;
-        const objetoEncontrado = cuotas.find((obj) => obj.id == opcionCuotaSeleccionado);
-        const cuotaValorFinal = objetoEncontrado.cuota
-        setCuotaElegida(cuotaValorFinal)
+        if(opcionCuotaSeleccionado == "0"){
+            setCuotaElegida(null)
+        }
+        else{
+            const objetoEncontrado = cuotas.find((obj) => obj.id == opcionCuotaSeleccionado);
+            const cuotaValorFinal = objetoEncontrado.cuota
+            setCuotaElegida(cuotaValorFinal)
+        }
     }
-    const botonPrueba = () =>{
-        console.log(cuotaElegida)
-    }
-
     return (
         <div className='containerApp'>
             <h1 className='animated zoomIn tituloh1'>DINERO Y CUOTAS</h1>
@@ -161,7 +165,6 @@ const ItemListaContainer = () => {
             <select onChange={handleSelectChangeCuota} className='animated zoomIn'>
                 <ItemListCuotas cuotas={cuotas} />
             </select>
-            <button onClick={botonPrueba}>es prueba</button>
             <Link to='/' onClick={handleCambioDeRuta}>
                 <BotonGral textoBoton="cotizar" />
             </Link>
