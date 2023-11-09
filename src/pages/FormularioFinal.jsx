@@ -28,8 +28,8 @@ const FormularioFinal = () => {
     // })
 
     return (
-        <div>
-            <h1>Formulario Final</h1>
+        <div className='containerApp'>
+            <h1 className='animated zoomIn tituloh1'>Formulario Final</h1>
             <div>
                 <p>
                     Ingrese foto de su ultimo recibo de sueldo

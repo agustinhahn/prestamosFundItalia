@@ -38,6 +38,7 @@ const ItemListaContainer = () => {
 
     const {importElegido, setImportElegido} = useContext(ContextCart)
     const {cuotaElegida,setCuotaElegida} = useContext(ContextCart)
+    const {recargoElegido,setRecargoElegido} = useContext(ContextCart)
 
     const importes = [
         {
@@ -113,23 +114,28 @@ const ItemListaContainer = () => {
         },
         {
             id:1,
-            cuota: 3
+            cuota: 3,
+            recargo: 1.8
         },
         {
             id:2,
-            cuota: 6
+            cuota: 6,
+            recargo: 2.2
         },
         {
             id:3,
-            cuota: 12
+            cuota: 12,
+            recargo: 2.5
         },
         {
             id:4,
-            cuota: 16
+            cuota: 16,
+            recargo: 2.9
         },
         {
             id:5,
             cuota: 18
+            ,recargo: 3.4
         },
     ]
 
@@ -153,7 +159,9 @@ const ItemListaContainer = () => {
         else{
             const objetoEncontrado = cuotas.find((obj) => obj.id == opcionCuotaSeleccionado);
             const cuotaValorFinal = objetoEncontrado.cuota
+            const recargoValorFinal = objetoEncontrado.recargo
             setCuotaElegida(cuotaValorFinal)
+            setRecargoElegido(recargoValorFinal)
         }
     }
     return (

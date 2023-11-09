@@ -29,12 +29,12 @@ const Index = () => {
     };
     return (
         <div className='containerApp'>
-            <h1 className='tituloh1'>Prestamos Italia</h1>
+            <h1 className='animated zoomIn tituloh1'>Prestamos Italia</h1>
             <Link to='/' onClick={handleCambioDeRuta}>
-                <BotonGral textoBoton="SOLICITAR"/>
+                <BotonGral textoBoton="solicitar"/>
             </Link>
             <Link to='/' onClick={handleVolver}>
-                <BotonGral textoBoton="REQUISITOS" />
+                <BotonGral textoBoton="requisitos" />
             </Link>
         </div>
     )

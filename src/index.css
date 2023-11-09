@@ -11,10 +11,9 @@ body {
 /*TITULO*/
 
 .tituloh1{
-  font-size:4rem ;
+  font-size:60px ;
   color:#f4f8f8;
-  font-family: 'Great Vibes', cursive;
-  font-family: 'Satisfy', cursive;
+  font-family: 'Podkova', serif;
   letter-spacing: 5px;
 }
 @-webkit-keyframes zoomIn {
@@ -64,6 +63,7 @@ animation-fill-mode: both;
 }
 
 .btn_gral{
+  font-family: 'Podkova', serif;
   margin: 30px;
   height: 80px;
   width: 330px;
@@ -124,6 +124,7 @@ transform: rotateY(180deg);
 
 
 select{
+  font-family: 'Podkova', serif;
   margin: 30px;
   height: 80px;
   width: 400px;
