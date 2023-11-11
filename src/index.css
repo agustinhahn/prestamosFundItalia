@@ -97,31 +97,10 @@ transform: rotateY(180deg);
 
 /*CONTENEDOR DE INFO */
 
-.contInfo{
-  margin: 10px;
-  width: 900px;
-  font-size:18px;
-  background-color: #4E937A;;
-  opacity: 0.5;
-  border-radius: 20px;
-  border: none;
-  color:white;
-  transition: transform 0.5s;
-  transition: all 0.6s ease-in-out;
-  font-family: 'Gabarito', cursive;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  align-items: center;
+.info{
+  font-family: 'Podkova', serif;
+  font-size: 20px;
 }
-
-.contInfo:hover{
-  transform: scale(1.2); /*para definir tamaño*/
-  background-color: #3c705d;
-  font-weight: bold;
-  letter-spacing: 5px;
-}
-
 
 select{
   font-family: 'Podkova', serif;
@@ -139,9 +118,36 @@ select{
   text-align: center;
 }
 
+input{
+  font-family: 'Podkova', serif;
+  font-size:18px;
+  background-color: #020000;
+  opacity: 0.7;
+  border-radius: 20px;
+  border: none;
+  color:white;
+  transition: transform 0.5s;
+  transition: all 0.9s ease-in-out;
+  text-align: center;
+}
+
 select option{
   background-color: #302e2e;
   opacity: 0.7;
   border-radius: 20px;
   border: none;
+}
+
+button{
+  font-family: 'Podkova', serif;
+  margin: 10px;
+  font-size:18px;
+  background-color: #020000;
+  opacity: 0.7;
+  border-radius: 20px;
+  border: none;
+  color:white;
+  transition: transform 0.5s;
+  transition: all 0.9s ease-in-out;
+  text-align: center;
 }

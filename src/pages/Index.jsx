@@ -24,7 +24,7 @@ const Index = () => {
         setTimeout(() => {
             setSalida(false);
             // Después de completar la transición, redirigir a la nueva ruta
-            history('/');
+            history('/requisitos');
         }, 1000); 
     };
     return (

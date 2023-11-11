@@ -17,12 +17,12 @@ function App() {
       <BrowserRouter>
         <CartContext>
           <Routes>
-                <Route exact path='/' element={<Index />} />
-                <Route exact path='/cotizador' element={<ItemListaContainer />} />
-                <Route exact path='/resumen' element={<Resumen />} />
-                <Route exact path='/formulariofinal' element={<FormularioFinal />} />
-                <Route exact path='/agradecimiento' element={<Agradecimiento />} />
-                <Route exact path='/requisitos' element={<Requisitos />} />
+            <Route exact path='/' element={<Index />} />
+            <Route exact path='/cotizador' element={<ItemListaContainer />} />
+            <Route exact path='/resumen' element={<Resumen />} />
+            <Route exact path='/formulariofinal' element={<FormularioFinal />} />
+            <Route exact path='/agradecimiento' element={<Agradecimiento />} />
+            <Route exact path='/requisitos' element={<Requisitos />} />
             </ Routes>
         </CartContext>
       </BrowserRouter>

@@ -1,57 +1,99 @@
-import React from 'react'
+import { useContext, useState } from 'react'
+import {Link, useNavigate} from 'react-router-dom'
 import BotonGral from '../components/BotonGral';
+import { ContextCart } from '../context/CartContext';
 
 const FormularioFinal = () => {
 
-    //MEJORAR EL CODIGO COMO PARA REACT
+    const {imagen1,setImagen1} = useContext(ContextCart)
+    const {imagen2,setImagen2} = useContext(ContextCart)
+    const {cbu,setCbu} = useContext(ContextCart)
 
-    // const imagenInput = document.getElementById('imagenInput');
-    // const cargarImagenBtn = document.getElementById('cargarImagen');
-    // const imagenTemporal = document.getElementById('imagenTemporal');
+    const [salida, setSalida] = useState(false);
+    const history = useNavigate();
 
-    // cargarImagenBtn.addEventListener('click', () => {
-    //     // Comprueba si se ha seleccionado un archivo
-    //     if (imagenInput.files.length > 0) {
-    //         const imagenCargada = imagenInput.files[0];
-    //         const urlImagen = URL.createObjectURL(imagenCargada);
 
-    //         // Crea un elemento de imagen para mostrar la imagen temporalmente
-    //         const img = document.createElement('img');
-    //         img.src = urlImagen;
-    //         img.alt = 'Imagen Temporal';
-    //         img.style.maxWidth = '100%';
+    const handleImageChange1 = (event) => {
+        const file = event.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onloadend = () => {
+            setImagen1(reader.result);
+        };
+        reader.readAsDataURL(file);
+    }
+    };
 
-    //         // Agrega la imagen al div de imagen temporal
-    //         imagenTemporal.innerHTML = ''; // Limpia el div
-    //         imagenTemporal.appendChild(img);
-    //     }
-    // })
+    const handleImageChange2 = (event) => {
+        const file = event.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onloadend = () => {
+            setImagen2(reader.result);
+        };
+        reader.readAsDataURL(file);
+    }
+    };
+
+    const capturarCbu = (event) =>{
+        const ingCbu = event.target.value;
+        setCbu(ingCbu)
+    }
+
+    const handleCambioDeRuta = (e) => {
+        e.preventDefault(); // Evitar la redirección predeterminada
+        setSalida(true);
+
+        setTimeout(() => {
+            
+                setSalida(false);
+                // Después de completar la transición, redirigir a la nueva ruta
+                history('/agradecimiento');
+
+                console.log("ELIGE UN IMPORTE") //despues cambiar por un pop up
+        }, 1000); 
+    };
+
+    const handleVolver = (e) => {
+        e.preventDefault(); // Evitar la redirección predeterminada
+        setSalida(true);
+
+        setTimeout(() => {
+            setSalida(false);
+            // Después de completar la transición, redirigir a la nueva ruta
+            history('/cotizador');
+        }, 1000); 
+    };
 
     return (
         <div className='containerApp'>
             <h1 className='animated zoomIn tituloh1'>Formulario Final</h1>
-            <div>
+            <div className='info'>
                 <p>
                     Ingrese foto de su ultimo recibo de sueldo
                 </p>
-                <input type="file" id="imagenInput" accept="image/*" />
-                <button id="cargarImagen">Cargar Imagen</button>
+                <input type="file" id="imagenInput" accept="image/*" onChange={handleImageChange1} />
+                {/* <button id="cargarImagen">Cargar Imagen</button> */}
                 <div id="imagenTemporal"></div>
                 <p>
                     Ingrese foto de servicio o impuesto a su nombre
                 </p>
                 {/* aqui hay que modificar el js para otra imagen */}
-                <input type="file" id="imagenInput2" accept="image/*" />
-                <button id="cargarImagen2">Cargar Imagen</button>
+                <input type="file" id="imagenInput2" accept="image/*" onChange={handleImageChange2} />
+                {/* <button id="cargarImagen2">Cargar Imagen</button> */}
                 <div id="imagenTemporal2"></div>
                 <p>
                     ingresar su cbu
                 </p>
-                <input type='number' />
+                <input type='number' onChange={capturarCbu} />
             </div>
             <div>
-                <BotonGral textoBoton="CONFIRMAR PRESTAMO" />
-                <BotonGral textoBoton="VOLVER" />
+                <Link to='/' onClick={handleCambioDeRuta}>
+                    <BotonGral textoBoton="CONFIRMAR PRESTAMO" />
+                </Link>
+                <Link to='/' onClick={handleVolver}>
+                    <BotonGral textoBoton="VOLVER" />
+                </Link>
             </div>
         </div>
     )

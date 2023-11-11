@@ -43,7 +43,7 @@ const Resumen = () => {
     return (
         <div className='containerApp'>
             <h1 className='animated zoomIn tituloh1'>Resumen</h1>
-            <div>
+            <div className='info'>
                 <p>Dinero solicitado: ${importElegido} </p>
                 <p>Cuotas solicitadas: {cuotaElegida}</p>
                 <p>Importe a pagar por mes: ${importePorCuota}</p>
