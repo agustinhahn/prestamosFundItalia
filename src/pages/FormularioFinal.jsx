@@ -45,12 +45,12 @@ const FormularioFinal = () => {
         setSalida(true);
 
         setTimeout(() => {
-            
+            if(imagen1 !==null && imagen2 !==null && cbu !==null){
                 setSalida(false);
                 // Después de completar la transición, redirigir a la nueva ruta
                 history('/agradecimiento');
-
-                console.log("ELIGE UN IMPORTE") //despues cambiar por un pop up
+            }
+                console.log("completa los datos") //despues cambiar por un pop up
         }, 1000); 
     };
 

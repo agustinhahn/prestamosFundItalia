@@ -7,14 +7,41 @@ const Agradecimiento = () => {
     const {imagen2,setImagen2} = useContext(ContextCart)
     const {cbu,setCbu} = useContext(ContextCart)
 
-    
 
-    // const enviarWhatsAppBtn = () =>{
-    //     const numeroWhatsApp = '5493416524078';
-    //     const mensaje = '¡Hola! Quiero compartir información contigo.';
-    //     const enlaceWhatsApp = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensaje)}`;
-    //     window.open(enlaceWhatsApp)
-    // }
+
+    const enviarWhatsAppBtn = () =>{
+        const numeroWhatsApp = '5493416524078';
+        //convierto imagen a url base64
+        const imagenRecibo = imagen1 instanceof File && URL.createObjectURL(imagen1)
+        const imagenServicio = imagen2 instanceof File && URL.createObjectURL(imagen2)
+        const reader1 = new FileReader();
+        // const reader2 = new FileReader();
+
+        reader1.onloadend = () => {
+            const imagenReciboBase64 = reader1.result;
+            // reader2.readAsDataURL(imagen2);
+            // reader2.onloadend = () => {
+            //     const imagenServicioBase64 = reader2.result;
+
+                const mensaje = `Hola Mario! aquí está la información sobre el préstamo que requiero.
+                - CBU: ${cbu}
+                - Recibo de sueldo: ${imagenReciboBase64}
+
+                `;
+
+                const enlaceWhatsApp = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensaje)}`;
+                window.open(enlaceWhatsApp);
+                window.location.href = './';
+            // };
+        };
+        reader1.readAsDataURL(imagen1);
+    };
+    useEffect(() => {
+        const delay = 5000;
+        const timeoutId = setTimeout(enviarWhatsAppBtn, delay);
+        //redireccionar a otra ruta
+    },[])
+
     return (
         <div className='containerApp'>
             <h1 className='tituloh1'>gracias por tu solicitud</h1>
