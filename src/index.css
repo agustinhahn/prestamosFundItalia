@@ -108,6 +108,7 @@ transform: rotateY(180deg);
 .info{
   font-family: 'Podkova', serif;
   font-size: 20px;
+  padding: 10px;
 }
 
 select{
@@ -221,32 +222,32 @@ button{
 
 @media (max-width: 431px){
   .tituloh1{
-    font-size:20px ;
+    font-size:35px ;
     text-align: center;
     color: green;
   }
   .btn_gral{
     margin: 20px;
-    height: 45px;
-    width: 150px;
-    font-size:13px;
+    height: 70px;
+    width: 210px;
+    font-size:20px;
   }
   select{
     margin: 20px;
-    height: 45px;
-    width: 180px;
-    font-size:13px;
+    height: 60px;
+    width: 260px;
+    font-size:20px;
   }
   .info{
-    font-size: 9px;
+    font-size: 20px;
   }
   input{
-    width:170px;
-    font-size:8px ;
+    width:260px;
+    font-size:15px ;
   }
   .inputcbu{
-    width: 120px;
-    font-size:10px ;
+    width: 200px;
+    font-size:15px ;
   }
 }
 
