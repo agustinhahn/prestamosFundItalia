@@ -16,6 +16,8 @@ body {
   font-family: 'Podkova', serif;
   letter-spacing: 5px;
 }
+
+
 @-webkit-keyframes zoomIn {
   from {
   opacity: 0;
@@ -53,7 +55,7 @@ animation-fill-mode: both;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 50px;
+  padding-top: 50px;
   opacity: 1;
   transition: opacity 1s ease-in-out;
 }
@@ -150,4 +152,123 @@ button{
   transition: transform 0.5s;
   transition: all 0.9s ease-in-out;
   text-align: center;
+}
+
+
+@media (max-width: 991.99px){
+  .tituloh1{
+    font-size:40px ;
+    text-align: center;
+  }
+  .btn_gral{
+    width: 250px;
+    height: 70px;
+  }
+  select{
+    margin: 30px;
+    height: 70px;
+    width: 300px;
+    font-size:18px;
+  }
+  .info{
+    font-size: 15px;
+  }
+  input{
+    width: 290px;
+    font-size:13px ;
+  }
+  .inputcbu{
+    width: 180px;
+    font-size:13px ;
+  }
+}
+
+@media (max-width: 541px){
+  .tituloh1{
+    font-size:30px ;
+    text-align: center;
+  }
+  .btn_gral{
+    margin: 20px;
+    height: 60px;
+    width: 190px;
+    font-size:15px;
+  }
+  select{
+    margin: 20px;
+    height: 60px;
+    width: 230px;
+    font-size:15px;
+  }
+  .info{
+    font-size: 11px;
+  }
+  input{
+    width: 230px;
+    font-size:10px ;
+  }
+  .inputcbu{
+    width: 140px;
+    font-size:12px ;
+  }
+}
+
+@media (max-width: 431px){
+  .tituloh1{
+    font-size:20px ;
+    text-align: center;
+  }
+  .btn_gral{
+    margin: 20px;
+    height: 45px;
+    width: 150px;
+    font-size:13px;
+  }
+  select{
+    margin: 20px;
+    height: 45px;
+    width: 180px;
+    font-size:13px;
+  }
+  .info{
+    font-size: 9px;
+  }
+  input{
+    width:170px;
+    font-size:8px ;
+  }
+  .inputcbu{
+    width: 120px;
+    font-size:10px ;
+  }
+}
+
+@media (max-width: 361px){
+  .tituloh1{
+    font-size:16px ;
+    text-align: center;
+  }
+  .btn_gral{
+    margin: 20px;
+    height: 40px;
+    width: 130px;
+    font-size:10px;
+  }
+  select{
+    margin: 20px;
+    height: 40px;
+    width: 150px;
+    font-size:10px;
+  }
+  .info{
+    font-size: 7px;
+  }
+  input{
+    width:150px;
+    font-size:7px ;
+  }
+  .inputcbu{
+    width: 110px;
+    font-size:9px ;
+  }
 }

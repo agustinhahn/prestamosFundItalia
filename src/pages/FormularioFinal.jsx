@@ -73,19 +73,15 @@ const FormularioFinal = () => {
                     Ingrese foto de su ultimo recibo de sueldo
                 </p>
                 <input type="file" id="imagenInput" accept="image/*" onChange={handleImageChange1} />
-                {/* <button id="cargarImagen">Cargar Imagen</button> */}
-                <div id="imagenTemporal"></div>
                 <p>
                     Ingrese foto de servicio o impuesto a su nombre
                 </p>
                 {/* aqui hay que modificar el js para otra imagen */}
                 <input type="file" id="imagenInput2" accept="image/*" onChange={handleImageChange2} />
-                {/* <button id="cargarImagen2">Cargar Imagen</button> */}
-                <div id="imagenTemporal2"></div>
                 <p>
                     ingresar su cbu
                 </p>
-                <input type='number' onChange={capturarCbu} />
+                <input type='number' className='inputcbu' onChange={capturarCbu} />
             </div>
             <div>
                 <Link to='/' onClick={handleCambioDeRuta}>
