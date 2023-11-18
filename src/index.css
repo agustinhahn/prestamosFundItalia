@@ -223,6 +223,7 @@ button{
   .tituloh1{
     font-size:20px ;
     text-align: center;
+    color: green;
   }
   .btn_gral{
     margin: 20px;
@@ -253,6 +254,7 @@ button{
   .tituloh1{
     font-size:20px ;
     text-align: center;
+    color: red;
   }
   .btn_gral{
     margin: 20px;
