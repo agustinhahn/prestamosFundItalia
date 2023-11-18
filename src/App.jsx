@@ -1,5 +1,5 @@
 import { useState, useContext } from 'react'
-import Index from './pages'
+import Index from './pages/Index'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Requisitos from './pages/Requisitos'
 import Resumen from './pages/Resumen'
