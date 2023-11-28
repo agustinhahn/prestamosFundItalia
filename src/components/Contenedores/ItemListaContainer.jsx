@@ -170,7 +170,7 @@ const ItemListaContainer = () => {
             <select onChange={handleSelectChangeDinero} className='animated zoomIn'>
                 <ItemList importes={importes} />
             </select>
-            <select onChange={handleSelectChangeCuota} className='animated zoomIn'>
+            <select onChange={handleSelectChangeCuota} className='animated zoomIn selectclass'>
                 <ItemListCuotas cuotas={cuotas} />
             </select>
             <Link to='/' onClick={handleCambioDeRuta}>
