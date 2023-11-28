@@ -1,47 +1,41 @@
 import { useContext, useState, useEffect } from 'react';
 import { ContextCart } from '../context/CartContext';
-import { useDropzone } from 'react-dropzone'
 
 const Agradecimiento = () => {
 
-    const {imagen1,setImagen1} = useContext(ContextCart)
-    const {imagen2,setImagen2} = useContext(ContextCart)
+
     const {cbu,setCbu} = useContext(ContextCart)
+    const {nombreCliente,setnombreCliente} = useContext(ContextCart)
+    const {dniCliente,setDniCliente} = useContext(ContextCart)
+    const {cuotaElegida, setCuotaElegida} = useContext(ContextCart)
+    const {importElegido, setImportElegido} = useContext(ContextCart)
 
 
+    const valorxCuota = importElegido / cuotaElegida
 
-    const enviarWhatsAppBtn = () =>{
-        const numeroWhatsApp = '5493416524078';
-        //convierto imagen a url base64
-        const imagenRecibo = imagen1 instanceof File && URL.createObjectURL(imagen1)
-        const imagenServicio = imagen2 instanceof File && URL.createObjectURL(imagen2)
-        const reader1 = new FileReader();
-        // const reader2 = new FileReader();
+    const enviarWhatsapp = () => {
+        if (mensaje) {
+            const numeroCelular = '3416524078'; // Reemplaza con el número de teléfono deseado
 
-        reader1.onloadend = () => {
-            const imagenReciboBase64 = reader1.result;
-            // reader2.readAsDataURL(imagen2);
-            // reader2.onloadend = () => {
-            //     const imagenServicioBase64 = reader2.result;
-//                - Recibo de sueldo: ${imagenReciboBase64}
+            // Combina los dos mensajes con un salto de línea usando \n
+            const mensajesCombinados = encodeURIComponent(`Hola Mario, te contacto por un prestamo.\nMi nombre es: ${nombreCliente}\nMi CBU: ${cbu}\nQuiero recibir: $${importElegido}\nCantidad de cuotas: ${cuotaElegida} \nEstare pagando por cuota: $${valorxCuota}`);
 
-                const mensaje = `Hola Mario! aquí está la información sobre el préstamo que requiero.
-                - CBU: ${cbu}
-                `;
-                const encodedMensaje = encodeURIComponent(mensaje)
+            // Genera el enlace de WhatsApp con los mensajes combinados
+            const enlaceWhatsapp = `https://wa.me/${numeroCelular}?text=${mensajesCombinados}`;
 
-                const enlaceWhatsApp = `https://wa.me/${numeroWhatsApp}?text=${encodedMensaje}`;
-                window.open(enlaceWhatsApp);
-                window.location.href = './';
-            // };
-        };
-        // reader1.readAsDataURL(imagen1);
+            // Abre el enlace en una nueva ventana o pestaña
+            window.open(enlaceWhatsapp, '_blank');
+        } else {
+            alert('Por favor, ingresa el primer mensaje.');
+        }
     };
+
     useEffect(() => {
         const delay = 5000;
-        const timeoutId = setTimeout(enviarWhatsAppBtn, delay);
+        const timeoutId = setTimeout(enviarWhatsapp, delay);
         //redireccionar a otra ruta
     },[])
+
 
     return (
         <div className='containerApp'>

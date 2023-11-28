@@ -5,39 +5,26 @@ import { ContextCart } from '../context/CartContext';
 
 const FormularioFinal = () => {
 
-    const {imagen1,setImagen1} = useContext(ContextCart)
-    const {imagen2,setImagen2} = useContext(ContextCart)
     const {cbu,setCbu} = useContext(ContextCart)
+    const {nombreCliente,setnombreCliente} = useContext(ContextCart)
+    const {dniCliente,setDniCliente} = useContext(ContextCart)
 
     const [salida, setSalida] = useState(false);
     const history = useNavigate();
 
 
-    const handleImageChange1 = (event) => {
-        const file = event.target.files[0];
-        if (file) {
-            const reader = new FileReader();
-            reader.onloadend = () => {
-            setImagen1(reader.result);
-        };
-        reader.readAsDataURL(file);
-    }
-    };
-
-    const handleImageChange2 = (event) => {
-        const file = event.target.files[0];
-        if (file) {
-            const reader = new FileReader();
-            reader.onloadend = () => {
-            setImagen2(reader.result);
-        };
-        reader.readAsDataURL(file);
-    }
-    };
 
     const capturarCbu = (event) =>{
         const ingCbu = event.target.value;
         setCbu(ingCbu)
+    }
+    const capturarDni = (event) =>{
+        const ingDni = event.target.value;
+        setDniCliente(ingDni)
+    }
+    const capturarNombre = (event) =>{
+        const ingNombre = event.target.value;
+        setnombreCliente(ingNombre)
     }
 
     const handleCambioDeRuta = (e) => {
@@ -45,7 +32,7 @@ const FormularioFinal = () => {
         setSalida(true);
 
         setTimeout(() => {
-            if(imagen1 !==null && imagen2 !==null && cbu !==null){
+            if(nombreCliente !==null && dniCliente !==null && cbu !==null){
                 setSalida(false);
                 // Después de completar la transición, redirigir a la nueva ruta
                 history('/agradecimiento');
@@ -70,14 +57,13 @@ const FormularioFinal = () => {
             <h1 className='animated zoomIn tituloh1'>Formulario Final</h1>
             <div className='info'>
                 <p>
-                    Ingrese foto de su ultimo recibo de sueldo
+                    Ingrese su nombre
                 </p>
-                <input type="file" id="imagenInput" accept="image/*" onChange={handleImageChange1} />
+                <input type="text" className='inputcbu' onChange={capturarNombre} />
                 <p>
-                    Ingrese foto de servicio o impuesto a su nombre
+                    Ingrese su documento
                 </p>
-                {/* aqui hay que modificar el js para otra imagen */}
-                <input type="file" id="imagenInput2" accept="image/*" onChange={handleImageChange2} />
+                <input type='number' className='inputcbu' onChange={capturarDni} />
                 <p>
                     ingresar su cbu
                 </p>
