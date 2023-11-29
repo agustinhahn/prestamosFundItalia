@@ -16,7 +16,7 @@ const Agradecimiento = () => {
     
 
     const enviarWhatsapp = () => {
-        const numeroCelular = '3416524078'; 
+        const numeroCelular = '3414684871'; 
         const mensajesCombinados = encodeURIComponent(`Hola Mario, te contacto por un prestamo.\nMi nombre es: ${nombreCliente}\nMi documento: ${dniCliente}\nMi CBU: ${cbu}\nQuiero recibir: $${importElegido}\nCantidad de cuotas: ${cuotaElegida} \nEstare pagando por cuota: $${valorxCuota}`);
         const enlaceWhatsapp = `https://wa.me/${numeroCelular}?text=${mensajesCombinados}`;
         window.open(enlaceWhatsapp, '_blank');
