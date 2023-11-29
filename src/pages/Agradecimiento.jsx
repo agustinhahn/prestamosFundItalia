@@ -30,7 +30,6 @@ const Agradecimiento = () => {
             <h1 className="tituloh1">Gracias por tu solicitud</h1>
             <p className="info">Tu préstamo está siendo evaluado y en breve tendrás noticias nuestras</p>
             <a href="#" onClick={enviarWhatsapp}>
-                Abrir WhatsApp
             </a>
         </div>
     );
