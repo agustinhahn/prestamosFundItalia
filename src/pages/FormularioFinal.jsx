@@ -6,7 +6,7 @@ import { ContextCart } from '../context/CartContext';
 const FormularioFinal = () => {
 
     const {cbu,setCbu} = useContext(ContextCart)
-    const {nombreCliente,setnombreCliente} = useContext(ContextCart)
+    const {nombreCliente,setNombreCliente} = useContext(ContextCart)
     const {dniCliente,setDniCliente} = useContext(ContextCart)
 
     const [salida, setSalida] = useState(false);
@@ -24,13 +24,12 @@ const FormularioFinal = () => {
     }
     const capturarNombre = (event) =>{
         const ingNombre = event.target.value;
-        setnombreCliente(ingNombre)
+        setNombreCliente(ingNombre)
     }
 
     const handleCambioDeRuta = (e) => {
         e.preventDefault(); // Evitar la redirección predeterminada
         setSalida(true);
-
         setTimeout(() => {
             if(nombreCliente !==null && dniCliente !==null && cbu !==null){
                 setSalida(false);
@@ -59,7 +58,7 @@ const FormularioFinal = () => {
                 <p>
                     Ingrese su nombre
                 </p>
-                <input type="text" className='inputcbu' onChange={capturarNombre} />
+                <input type='text' className='inputcbu' onChange={capturarNombre} />
                 <p>
                     Ingrese su documento
                 </p>

@@ -13,7 +13,6 @@ const Resumen = () => {
         setTimeout(() => {
             if(importElegido !==null && cuotaElegida !==null){
                 setSalida(false);
-                // Después de completar la transición, redirigir a la nueva ruta
                 history('/formulariofinal');
             }
             else{
@@ -28,7 +27,6 @@ const Resumen = () => {
 
         setTimeout(() => {
             setSalida(false);
-            // Después de completar la transición, redirigir a la nueva ruta
             history('/cotizador');
         }, 1000); 
     };
